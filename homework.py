@@ -11,7 +11,7 @@ load_dotenv()
 PRAKTIKUM_TOKEN = os.getenv("PRAKTIKUM_TOKEN")
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
-PRAKTIKUM_API_URL = os.getenv('PRAKTIKUM_API_URL')
+PRAKTIKUM_API = 'https://praktikum.yandex.ru/api/user_api/homework_statuses/'
 
 headers = {
     'Authorization': f'OAuth {PRAKTIKUM_TOKEN}'
@@ -57,7 +57,7 @@ def get_homework_statuses(current_timestamp):
         'from_date': current_timestamp
     }
     homework_statuses = requests.get(
-        PRAKTIKUM_API_URL,
+        PRAKTIKUM_API,
         headers=headers,
         params=params,
     )
