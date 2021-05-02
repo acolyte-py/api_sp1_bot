@@ -52,7 +52,8 @@ def parse_homework_status(homework):
 
 
 def get_homework_statuses(current_timestamp):
-
+    if current_timestamp is None:
+        current_timestamp = int(time.time())
     params = {
         'from_date': current_timestamp
     }
@@ -73,6 +74,7 @@ def send_message(message, bot_client):
 
 
 def main():
+
     bot_client = telegram.Bot(token=TELEGRAM_TOKEN)
     logger.debug('Бот активирован')
     current_timestamp = int(time.time())
